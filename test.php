@@ -12,7 +12,7 @@ try {
     echo "12 / 8 = " . diviser(12, 8) . "<br>";
     echo "Division par zéro : " . diviser(10, 0) . "<br>";
 } catch (InvalidArgumentException $e) {
-    echo "❌ Erreur : " . $e->getMessage() . "<br>";
+    echo " Erreur : " . $e->getMessage() . "<br>";
 }
 
 echo "<br>=== Étape 2 : Fonctions logiques ===<br>";

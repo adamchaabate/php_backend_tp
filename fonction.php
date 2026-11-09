@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-// =============================================
-// Étape 1 : Les quatre opérations
-// =============================================
+
+// Les quatre opérations
 
 function additionner(float $a, float $b): float {
     return $a + $b;
@@ -26,9 +25,9 @@ function diviser(float $a, float $b): float {
 
 
 
-// =============================================
-// Étape 2 : Fonctions logiques
-// =============================================
+
+// Fonctions logiques
+
 
 function estPair(int $n): bool {
     return $n % 2 === 0;
@@ -60,9 +59,9 @@ function estPremier(int $n): bool {
 }
 
 
-// =============================================
-// Étape 3 : Calculs commerciaux
-// =============================================
+
+// Calculs commerciaux
+
 
 function calculerTTC(float $ht, float $tva = 20.0): float {
     return $ht * (1 + $tva / 100);
