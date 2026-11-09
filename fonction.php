@@ -58,3 +58,22 @@ function estPremier(int $n): bool {
     }
     return true;
 }
+
+
+// =============================================
+// Étape 3 : Calculs commerciaux
+// =============================================
+
+function calculerTTC(float $ht, float $tva = 20.0): float {
+    return $ht * (1 + $tva / 100);
+}
+
+function calculerRemise(float $prix, float $pourcentage): float {
+    return round($prix * (1 - $pourcentage / 100), 2);
+}
+
+function calculerFacture(float $prixUnitaire, int $quantite, float $remise = 0, float $tva = 20.0): float {
+    $totalHT = $prixUnitaire * $quantite;
+    $totalApresRemise = calculerRemise($totalHT, $remise);
+    return calculerTTC($totalApresRemise, $tva);
+}
