@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-echo "hello";
+echo "hello world";
 
 require_once __DIR__ . '/fonctions.php';
 
