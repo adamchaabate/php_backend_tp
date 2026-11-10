@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-echo "hello world" ;
+echo "hello " ;
 
 
 // Les quatre opérations
