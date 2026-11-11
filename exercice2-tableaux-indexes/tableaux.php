@@ -29,3 +29,9 @@ unset($notes[1]);
 echo "Après unset(\$notes[1]) (Attention au trou !) :<br>";
 print_r($notes);
 echo "<br>";
+
+// 6. Corriger le trou avec array_values()
+$notes = array_values($notes);
+echo "Après array_values() (réindexé) :<br>";
+print_r($notes);
+echo "<br>";
