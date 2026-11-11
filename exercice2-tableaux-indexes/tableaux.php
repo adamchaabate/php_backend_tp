@@ -18,3 +18,8 @@ $premierRetire = array_shift($notes);
 echo "Élément retiré de la fin : $dernierRetire<br>";
 echo "Élément retiré du début : $premierRetire<br>";
 echo "Tableau actuel : " . implode(", ", $notes) . "<br>";
+
+// 4. Insérer 13 à l'indice 2 sans écraser
+// array_splice(tableau, indice, combien_on_supprime, ce_qu_on_ajoute)
+array_splice($notes, 2, 0, [13]);
+echo "Après insertion de 13 à l'indice 2 : " . implode(", ", $notes) . "<br>";
