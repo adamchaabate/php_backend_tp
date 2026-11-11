@@ -23,3 +23,9 @@ echo "Tableau actuel : " . implode(", ", $notes) . "<br>";
 // array_splice(tableau, indice, combien_on_supprime, ce_qu_on_ajoute)
 array_splice($notes, 2, 0, [13]);
 echo "Après insertion de 13 à l'indice 2 : " . implode(", ", $notes) . "<br>";
+
+// 5. Supprimer l'élément d'indice 1 avec unset()
+unset($notes[1]);
+echo "Après unset(\$notes[1]) (Attention au trou !) :<br>";
+print_r($notes);
+echo "<br>";
