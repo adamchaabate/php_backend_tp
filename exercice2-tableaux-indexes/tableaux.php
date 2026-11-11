@@ -8,3 +8,6 @@ $prenoms = ['Sara', 'Youssef', 'Imane', 'Omar', 'Khadija'];
 $notes[] = 16;          // Façon 1 (الأسهل)
 array_push($notes, 16); // Façon 2 (on ajoute un 2ème 16 juste pour l'exemple)
 echo "Après ajout de 16 à la fin : " . implode(", ", $notes) . "<br>";
+// 2. Ajouter 10 au début
+array_unshift($notes, 10);
+echo "Après ajout de 10 au début : " . implode(", ", $notes) . "<br>";
