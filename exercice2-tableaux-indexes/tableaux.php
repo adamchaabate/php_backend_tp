@@ -11,3 +11,10 @@ echo "Après ajout de 16 à la fin : " . implode(", ", $notes) . "<br>";
 // 2. Ajouter 10 au début
 array_unshift($notes, 10);
 echo "Après ajout de 10 au début : " . implode(", ", $notes) . "<br>";
+
+// 3. Retirer le dernier et le premier, et afficher les valeurs
+$dernierRetire = array_pop($notes);
+$premierRetire = array_shift($notes);
+echo "Élément retiré de la fin : $dernierRetire<br>";
+echo "Élément retiré du début : $premierRetire<br>";
+echo "Tableau actuel : " . implode(", ", $notes) . "<br>";
