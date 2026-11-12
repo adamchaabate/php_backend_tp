@@ -60,3 +60,37 @@ $prenomsTries = $prenoms;
 sort($prenomsTries); // ترتيب أبجدي
 echo "Prénoms triés : " . implode(", ", $prenomsTries) . "<br>";
 echo "Prénoms inversés : " . implode(", ", array_reverse($prenomsTries)) . "<br>";
+
+
+
+echo "<hr>";
+echo "<h2>=== Étape 6 : Transformer avec array_map, filter, reduce ===</h2>";
+
+// 1. Bonus : +1 sans dépasser 20
+$notesBonus = array_map(fn($n) => min(20, $n + 1), $notes);
+echo "Notes avec bonus : " . implode(", ", $notesBonus) . "<br>";
+
+// 2. Admis (>= 10) reindexé
+$admis = array_values(array_filter($notes, fn($n) => $n >= 10));
+echo "Notes admis : " . implode(", ", $admis) . "<br>";
+
+// 3. Total avec array_reduce
+$totalReduce = array_reduce($notes, fn($cumul, $n) => $cumul + $n, 0);
+echo "Total (array_reduce) : $totalReduce<br>";
+
+// 4. Prénoms en majuscules
+$prenomsMaj = array_map('strtoupper', $prenoms);
+echo "Prénoms en majuscules : " . implode(", ", $prenomsMaj) . "<br>";
+
+// 5. Mentions
+function getMention(float $note): string {
+    if ($note < 10) return "Ajourné";
+    if ($note < 14) return "Passable";
+    if ($note < 16) return "Assez bien";
+    return "Bien";
+}
+$mentions = array_map(fn($n) => "$n → " . getMention($n), $notes);
+echo "Mentions :<br>";
+foreach ($mentions as $m) {
+    echo "- $m<br>";
+}
