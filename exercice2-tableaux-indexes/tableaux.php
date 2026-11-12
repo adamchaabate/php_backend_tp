@@ -129,3 +129,52 @@ foreach ($paquets as $p) {
     echo "[" . implode(", ", $p) . "] ";
 }
 echo "<br>";
+
+
+echo "<hr>";
+echo "<h2>=== Étape 8 : Mini-problème : le carnet de notes ===</h2>";
+
+function moyenneCarnet(array $notes): float {
+    if (empty($notes)) return 0.0;
+    return array_sum($notes) / count($notes);
+}
+
+function medianeCarnet(array $notes): float {
+    if (empty($notes)) return 0.0;
+    sort($notes);
+    $milieu = intdiv(count($notes), 2);
+    if (count($notes) % 2 === 0) {
+        return ($notes[$milieu - 1] + $notes[$milieu]) / 2;
+    }
+    return $notes[$milieu];
+}
+
+function admisCarnet(array $notes, float $seuil = 10): array {
+    return array_values(array_filter($notes, fn($n) => $n >= $seuil));
+}
+
+function meilleuresCarnet(array $notes, int $n = 3): array {
+    rsort($notes);
+    return array_slice($notes, 0, $n);
+}
+
+function histogramme(array $notes): void {
+    foreach ($notes as $note) {
+        echo str_pad((string)$note, 4, " ", STR_PAD_LEFT) . " | " . str_repeat("*", $note) . "<br>";
+    }
+}
+
+// Test avec les notes
+echo "Moyenne : " . moyenneCarnet($notes) . "<br>";
+echo "Médiane : " . medianeCarnet($notes) . "<br>";
+echo "Admis : " . implode(", ", admisCarnet($notes)) . "<br>";
+echo "3 meilleures : " . implode(", ", meilleuresCarnet($notes)) . "<br>";
+echo "Histogramme :<br>";
+histogramme($notes);
+
+// Test avec un tableau vide (pour vérifier qu'il n'y a pas d'erreur)
+echo "<br><b>Test avec un tableau vide :</b><br>";
+$vide = [];
+echo "Moyenne : " . moyenneCarnet($vide) . "<br>";
+echo "Médiane : " . medianeCarnet($vide) . "<br>";
+echo "Admis : " . implode(", ", admisCarnet($vide)) . "<br>";
