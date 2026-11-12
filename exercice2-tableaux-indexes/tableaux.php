@@ -35,3 +35,28 @@ $notes = array_values($notes);
 echo "Après array_values() (réindexé) :<br>";
 print_r($notes);
 echo "<br>";
+
+
+echo "<hr>";
+echo "<h2>=== Étape 5 : Tri et extraction ===</h2>";
+
+// 1. Trier par ordre croissant et décroissant sur une copie
+$copie = $notes;
+sort($copie);
+echo "Croissant : " . implode(", ", $copie) . "<br>";
+
+$copie = $notes;
+rsort($copie);
+echo "Décroissant : " . implode(", ", $copie) . "<br>";
+
+// 2. Les 3 meilleures notes
+$copie = $notes;
+rsort($copie); // كنرتبو تنازلياً
+$meilleures = array_slice($copie, 0, 3); // كناخدو أول 3
+echo "Les 3 meilleures notes : " . implode(", ", $meilleures) . "<br>";
+
+// 3. Prénoms triés et inversés
+$prenomsTries = $prenoms;
+sort($prenomsTries); // ترتيب أبجدي
+echo "Prénoms triés : " . implode(", ", $prenomsTries) . "<br>";
+echo "Prénoms inversés : " . implode(", ", array_reverse($prenomsTries)) . "<br>";
