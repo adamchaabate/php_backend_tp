@@ -94,3 +94,38 @@ echo "Mentions :<br>";
 foreach ($mentions as $m) {
     echo "- $m<br>";
 }
+
+
+
+
+echo "<hr>";
+echo "<h2>=== Étape 7 : Chaînes, fusion et ensembles ===</h2>";
+
+// 1. Prénoms séparés par des virgules
+echo "Prénoms : " . implode(", ", $prenoms) . "<br>";
+
+// 2. Explode, unique
+$chaine = "php, js, sql, php, html, js";
+$tableauChaine = explode(", ", $chaine);
+$tableauUnique = array_unique($tableauChaine);
+echo "Dédoublonné : " . implode(", ", $tableauUnique) . "<br>";
+
+// 3. Fusion et dédoublonnage
+$arr1 = ["php", "sql"];
+$arr2 = ["js", "sql"];
+$fusion = array_unique(array_merge($arr1, $arr2));
+echo "Fusion : " . implode(", ", $fusion) . "<br>";
+
+// 4. Intersect et Diff
+$a = ["php", "js", "sql"];
+$b = ["js", "html", "sql"];
+echo "Communs (intersect) : " . implode(", ", array_intersect($a, $b)) . "<br>";
+echo "Uniques à A (diff) : " . implode(", ", array_diff($a, $b)) . "<br>";
+
+// 5. array_chunk
+$paquets = array_chunk(range(1, 10), 3);
+echo "Paquets de 3 : <br>";
+foreach ($paquets as $p) {
+    echo "[" . implode(", ", $p) . "] ";
+}
+echo "<br>";
